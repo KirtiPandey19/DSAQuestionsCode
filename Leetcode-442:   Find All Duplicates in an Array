@@ -1,0 +1,23 @@
+Leetcode-442:   Find All Duplicates in an Array
+
+Solution: class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        List<Integer> duplicates = new ArrayList<>();
+
+        // Iterate over the array to find duplicates
+        for (int i = 0; i < nums.length; i++) {
+            // Find the index corresponding to the current number
+            int index = Math.abs(nums[i]) - 1;
+
+            // If the value at this index is already negative, it means this number has appeared before
+            if (nums[index] < 0) {
+                duplicates.add(Math.abs(nums[i]));
+            } else {
+                // Mark this number as seen by making the value at the corresponding index negative
+                nums[index] = -nums[index];
+            }
+        }
+
+        return duplicates;
+    }
+}
