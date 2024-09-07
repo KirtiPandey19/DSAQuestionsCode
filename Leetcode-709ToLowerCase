@@ -1,0 +1,33 @@
+Leetcode-709 Question: To Lower Case
+
+Solution 1:  class Solution {
+    public String toLowerCase(String s) {
+      String str= s.toLowerCase();
+      return str;
+    }
+}
+
+Solution 2 : Using String Builder
+
+class Solution {
+    public String toLowerCase(String s) {
+        char[] chars = s.toCharArray();
+        StringBuilder result = new StringBuilder();
+
+        // Iterate through the array using a traditional for loop
+        for (int i = 0; i < chars.length; i++) {
+            char c = chars[i];
+            // Check if the character is uppercase
+            if (c >= 'A' && c <= 'Z') {
+                // Convert to lowercase by adding 32 to the ASCII value
+                result.append((char) (c + 32));
+            } else {
+                // If already lowercase, add it as is
+                result.append(c);
+            }
+        }
+        return result.toString();
+      }
+    }
+
+
