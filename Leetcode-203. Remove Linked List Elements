@@ -1,0 +1,25 @@
+Leetcode-203. Remove Linked List Elements
+Code:  class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        while (head != null && head.val == val) {
+            head = head.next; // Move the head to the next node if the head is to be removed
+        }
+
+        // Initialize the current node pointer
+        ListNode temp = head;
+
+        // Traverse through the linked list
+        while (temp != null && temp.next != null) {
+            // If the next node's value matches the target value, skip it
+            if (temp.next.val == val) {
+                temp.next = temp.next.next; // Remove the node by skipping it
+            } else {
+                temp = temp.next; // Move to the next node
+            }
+        }
+
+        return head; // Return the modified list's head
+    }
+    
+}
+    
