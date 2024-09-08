@@ -1,0 +1,17 @@
+Leetcode-206. Reverse Linked List
+ Code:
+class Solution {
+    public ListNode reverseList(ListNode head) {
+       ListNode prev = null;
+       ListNode current = head;
+       ListNode nextnode =head;
+       while(nextnode!=null){
+           nextnode = nextnode.next;
+           current.next= prev;
+           prev =current;
+           current=nextnode;
+       }
+       head= prev;
+       return head;
+    }
+}
