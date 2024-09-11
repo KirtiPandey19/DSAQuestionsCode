@@ -1,0 +1,50 @@
+445. Add Two Numbers 
+Code: // Definition for singly-linked list node.
+
+
+class Solution {
+    // Helper function to reverse a linked list
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode current = head;
+        while (current != null) {
+            ListNode nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        return prev;
+    }
+
+    // Main function to add two numbers represented by linked lists
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // Step 1: Reverse both linked lists
+        l1 = reverse(l1);
+        l2 = reverse(l2);
+
+        // Step 2: Initialize variables to store the result and carry
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        int carry = 0;
+
+        // Step 3: Add the numbers digit by digit
+        while (l1 != null || l2 != null || carry != 0) {
+            int sum = carry;
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+
+            carry = sum / 10;
+            current.next = new ListNode(sum % 10);
+            current = current.next;
+        }
+
+        // Step 4: Reverse the result to get the correct order
+        return reverse(dummy.next);
+    }
+}
