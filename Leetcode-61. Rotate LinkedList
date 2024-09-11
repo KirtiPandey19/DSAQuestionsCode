@@ -1,0 +1,37 @@
+Leetcode-61. Rotate List
+Code:
+
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        // Step 1: Handle edge cases
+        if (head == null || head.next == null || k == 0) {
+            return head;
+        }
+
+        // Step 2: Calculate the length of the list
+        ListNode current = head;
+        int length = 1; // start from 1 since we are at the head
+        while (current.next != null) {
+            current = current.next;
+            length++;
+        }
+
+        // Step 3: Make the list circular by connecting the tail to the head
+        current.next = head;
+
+        // Step 4: Find the new tail position, which is length - k % length
+        int newTailPosition = length - k % length;
+
+        // Step 5: Traverse to the new tail
+        ListNode newTail = head;
+        for (int i = 1; i < newTailPosition; i++) {
+            newTail = newTail.next;
+        }
+
+        // Step 6: Set the new head and break the cycle
+        ListNode newHead = newTail.next;
+        newTail.next = null;
+
+        return newHead;
+    }
+}
