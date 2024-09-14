@@ -1,0 +1,29 @@
+Leetcode:2095. Delete the Middle Node of a Linked List
+Code:
+class Solution {
+    public ListNode deleteMiddle(ListNode head) {
+        // Edge case: if the list has only one node, return null
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        // Initialize slow and fast pointers
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode prev = null;  // To keep track of the previous node of slow
+
+        // Traverse the list with fast moving twice as fast as slow
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Now 'slow' is pointing to the middle node, remove it
+        if (prev != null) {
+            prev.next = slow.next;  // Bypass the middle node
+        }
+
+        return head;  // Return the modified list
+    }
+}
