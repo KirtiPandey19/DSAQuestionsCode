@@ -1,0 +1,26 @@
+Leetcode-268. Missing Number in Array Using Brute force Approached
+Code:
+class Solution {
+    public int missingNumber(int[] nums) {
+        // Iterate from 0 to nums.length (inclusive)
+        for (int i = 0; i <= nums.length; i++) {
+            // flag variable to check if an element exists
+            boolean found = false;
+
+            // Search for the element using a linear search
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[j] == i) {
+                    // i is present in the array
+                    found = true;
+                    break;
+                }
+            }
+
+            // Check if the element is missing
+            if (!found) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
