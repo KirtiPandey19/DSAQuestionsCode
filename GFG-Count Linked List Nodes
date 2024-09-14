@@ -1,0 +1,15 @@
+GFG-Count Linked List Nodes
+Code:
+class Solution {
+    // Function to count nodes of a linked list.
+    public int getCount(Node head) {
+        // code here
+        Node temp=head;
+        int count=1;
+        while(temp.next!=null){
+            count++;
+            temp=temp.next;
+        }
+        return count;
+    }
+}
