@@ -1,0 +1,61 @@
+GFG-Find Largest, Second Largest and third Largest Element in Array
+Code:
+LARGEST:  class Solution {
+    public static int largest(int[] arr) {
+        // code here
+        int max=arr[1];
+        for(int i=0;i<arr.length;i++){
+            if(max<arr[i]){
+                max=arr[i];
+            }
+        }
+        return max;
+    }
+}
+
+SECOND LARGEST: class Solution {
+    public int print2largest(int[] arr) {
+        // Code Here
+        int max1=arr[0];
+        int max2=-1;
+        for(int i=0;i<arr.length;i++){
+         if(arr[i]>max1){
+             max1=arr[i];
+         
+         }
+      }
+      for(int i=0;i<arr.length;i++){
+          if(arr[i]!=max1 && arr[i]>max2){
+              max2=arr[i];
+          }
+      }
+      return max2;
+    }
+}
+
+THIRD LARGEST:  
+
+class Solution
+{
+    int thirdLargest(int a[], int n)
+    {
+	    // Your code here
+	    int max1=a[0];
+	    int max2=-1;
+	    int max3=0;
+	    for(int i=0;i<n;i++){
+	        if(a[i]>max1){
+	            max1=a[i];
+	        }
+	    }
+	    for(int i=0;i<n;i++){
+	        if(a[i]!=max1 && a[i]>max2)
+	         max2=a[i];
+	    }
+	    for(int i=0;i<n;i++){
+	        if(a[i]!=max1 && a[i]!=max2 && a[i]>max3)
+	      max3=a[i];
+	    }  return max3;
+    }
+}
+
