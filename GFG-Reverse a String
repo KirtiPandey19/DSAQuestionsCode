@@ -1,0 +1,18 @@
+GFG-Reverse a String
+Code:
+class Reverse
+{
+    // Complete the function
+    // str: input string
+    public static String reverseWord(String str)
+    {
+        // Reverse the string str
+        String str1="";
+        char ch;
+        for(int i=0;i<str.length();i++){
+            ch=str.charAt(i);
+            str1=ch+str1;
+        }
+        return str1;
+    }
+}
