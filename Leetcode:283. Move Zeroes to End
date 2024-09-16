@@ -1,0 +1,27 @@
+Leetcode:283. Move Zeroes
+Code:Using Brute force Approach
+class Solution {
+    public void moveZeroes(int[] nums) {
+        // Create a temp array to store non-zero elements
+        int[] temp = new int[nums.length];
+        int index = 0;  // Index to keep track of non-zero elements in temp array
+        
+        // First pass: Copy non-zero elements to temp
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                temp[index] = nums[i];
+                index++;
+            }
+        }
+        
+        // Second pass: Copy non-zero elements back to nums array
+        for (int i = 0; i < index; i++) {
+            nums[i] = temp[i];
+        }
+        
+        // Third pass: Fill the rest of the nums array with zeros
+        for (int i = index; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+    }
+}
