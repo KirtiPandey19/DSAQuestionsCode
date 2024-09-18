@@ -1,0 +1,24 @@
+GFG-Datatype
+class Solution {
+    static int dataTypeSize(String str) {
+        // code here
+        if (str.equals("Character")) {
+            return 2; // In Java, char is 2 bytes
+        } 
+        else if (str.equals("Integer")) {
+            return 4; // int is 4 bytes
+        } 
+        else if (str.equals("Long")) {
+            return 8; // long is 8 bytes
+        } 
+        else if (str.equals("Float")) {
+            return 4; // float is 4 bytes
+        } 
+        else if (str.equals("Double")) {
+            return 8; // double is 8 bytes
+        } 
+        else {
+            return -1; // Invalid data type
+        }
+    }
+}
