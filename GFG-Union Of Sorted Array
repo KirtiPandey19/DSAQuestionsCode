@@ -1,0 +1,33 @@
+GFG-Union Of Sorted Array
+Code: Using HashSet
+class Solution
+{
+  
+    public static ArrayList<Integer> findUnion(int arr1[], int arr2[], int n, int m)
+    {
+       
+        HashSet<Integer>set=new HashSet<Integer>();
+        for(int i=0;i<n;i++){
+            set.add(arr1[i]);
+        }
+         for(int j=0;j<m;j++){
+            set.add(arr2[j]);
+        }
+        
+        ArrayList<Integer> result = new ArrayList<>(set);
+
+        // Sorting the ArrayList.
+      Collections.sort(result);
+
+        return result;
+    }
+}
+
+
+
+
+
+
+
+
+
