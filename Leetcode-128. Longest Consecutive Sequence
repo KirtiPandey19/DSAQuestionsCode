@@ -1,0 +1,32 @@
+Leetcode-128. Longest Consecutive Sequence
+Code:(Better Approach)
+import java.util.Arrays;
+
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        if (nums.length == 0) return 0; // Handle empty array case
+        
+        // Sort the array
+        Arrays.sort(nums);
+        
+        int longest = 1; // Initialize longest to at least 1
+        int count = 1;   // Count of current consecutive sequence
+        
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                // Skip duplicates
+                continue;
+            }
+            if (nums[i] == nums[i - 1] + 1) {
+                // Increment count if consecutive
+                count++;
+            } else {
+                // Reset count if not consecutive
+                count = 1;
+            }
+            longest = Math.max(longest, count); // Update longest
+        }
+        
+        return longest;
+    }
+}
