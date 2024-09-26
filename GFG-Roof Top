@@ -1,0 +1,22 @@
+GFG-Roof Top
+Code:
+class Solution {
+int maxStep(int arr[]) {
+        int maxSteps = 0;
+        int currentSteps = 0;
+        
+        // Loop through the array to check for consecutive increases.
+        for (int i = 1; i < arr.length; i++) {
+            // If the current element is greater than the previous one, increase the step count.
+            if (arr[i] > arr[i - 1]) {
+                currentSteps++;
+                // Update maxSteps if currentSteps is greater.
+                maxSteps = Math.max(maxSteps, currentSteps);
+            } else {
+                // Reset currentSteps if the sequence is broken.
+                currentSteps = 0;
+            }
+        }
+        
+        return maxSteps;
+}}
