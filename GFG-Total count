@@ -1,0 +1,23 @@
+GFG-Total count
+Count:
+class Solution {
+    int totalCount(int k, int[] arr) {
+        // code here
+       
+        int totalSplits = 0;
+        
+        // Iterate through each element in the array
+        for (int num : arr) {
+            // If the number is less than or equal to k, it counts as 1 part
+            if (num <= k) {
+                totalSplits += 1;
+            } else {
+                // Divide the number by k and add extra part if there is remainder
+                totalSplits += (num / k) + (num % k == 0 ? 0 : 1);
+            }
+        }
+        
+        return totalSplits;
+    }
+    
+}
