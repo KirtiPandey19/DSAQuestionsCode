@@ -1,0 +1,29 @@
+GFG:Largest Pair Sum
+class Solution {
+    public static int pairsum(int[] arr) {
+        // Initialize the first and second largest numbers to minimum possible values
+        int first_max = Integer.MIN_VALUE;
+        int second_max = Integer.MIN_VALUE;
+
+        // Traverse the array to find the two largest elements
+        for (int num : arr) {
+            if (num > first_max) {
+                second_max = first_max;
+                first_max = num;
+            } else if (num > second_max) {
+                second_max = num;
+            }
+        }
+
+        // Return the sum of the two largest numbers
+        return first_max + second_max;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {12, 34, 10, 6, 40};
+        int[] arr2 = {10, 20, 30};
+
+        System.out.println("Largest Pair Sum: " + pairsum(arr1)); // Output: 74
+        System.out.println("Largest Pair Sum: " + pairsum(arr2)); // Output: 50
+    }
+}
