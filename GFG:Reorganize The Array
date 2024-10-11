@@ -1,0 +1,18 @@
+GFG:Reorganize The Array
+Code:
+class Solution {
+    public List<Integer> rearrange(List<Integer> arr) {
+        // Code here
+        List<Integer>brr=new ArrayList<>();
+        for(int i=0;i<arr.size();i++){
+            brr.add(-1);
+        }
+        for(int j=0;j<arr.size();j++){
+            if(arr.get(j)!=-1){
+                brr.set(arr.get(j),arr.get(j));
+            }
+        }
+        return brr;
+        
+    }
+}
